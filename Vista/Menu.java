@@ -3,21 +3,16 @@ package Vista;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.InetAddress;
-import java.rmi.Naming;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
-
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 import rmi.RemoteInterface;
-
-import javax.swing.SwingUtilities;
-
 
 public class Menu extends javax.swing.JFrame {
 	private JMenuBar jMenuBar1;
@@ -40,8 +35,8 @@ public class Menu extends javax.swing.JFrame {
 	private RemoteInterface ir;
 
 	/**
-	* Auto-generated main method to display this JFrame
-	*/
+	 * Auto-generated main method to display this JFrame
+	 */
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
@@ -51,11 +46,12 @@ public class Menu extends javax.swing.JFrame {
 			}
 		});
 	}
-	
+
 	public Menu() {
 		super();
 		initGUI();
 	}
+
 	private void initGUI() {
 		try {
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -77,24 +73,25 @@ public class Menu extends javax.swing.JFrame {
 						jMenuItem6.setText("Iniciar Servidor RMI");
 						jMenuItem6.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {
-								try{/*
-									Server srv = new Server();
-									srv.iniciar();
-									String[] vinculos = srv.getVinculos();
-									display.setText("Vinculos disponibles en el servidor: ");
-									display.append(InetAddress.getLocalHost().getHostAddress());
-									for ( int i = 0; i < vinculos.length; i++ ){
-										display.append( "\n"+vinculos[i]);
-									}
-								*/}catch (Exception e) {
-								 System.out.println(e.getMessage());
+								try {/*
+									 * Server srv = new Server(); srv.iniciar();
+									 * String[] vinculos = srv.getVinculos();
+									 * display.setText(
+									 * "Vinculos disponibles en el servidor: ");
+									 * display
+									 * .append(InetAddress.getLocalHost().
+									 * getHostAddress()); for ( int i = 0; i <
+									 * vinculos.length; i++ ){ display.append(
+									 * "\n"+vinculos[i]); }
+									 */
+								} catch (Exception e) {
+									System.out.println(e.getMessage());
 								}
-								
-								
+
 							}
 						});
 					}
-				
+
 				}
 				jMenu3 = new JMenu();
 				jMenuBar1.add(jMenu3);
@@ -105,9 +102,10 @@ public class Menu extends javax.swing.JFrame {
 					jMenuItem5.setText("Nuevo Pedido");
 					jMenuItem5.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent evt) {
-							AltaPedido.getInstancia().setLocationRelativeTo(null);
+							AltaPedido.getInstancia().setLocationRelativeTo(
+									null);
 							AltaPedido.getInstancia().setVisible(true);
-							
+
 						}
 					});
 				}
@@ -121,9 +119,23 @@ public class Menu extends javax.swing.JFrame {
 						jMenuItem1.setText("Alta");
 						jMenuItem1.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {/*
-								Agregar.getInstancia().setLocationRelativeTo(null);
-								Agregar.getInstancia().setVisible(true);
-							*/}
+																		 * Agregar.
+																		 * getInstancia
+																		 * ().
+																		 * setLocationRelativeTo
+																		 * (
+																		 * null)
+																		 * ;
+																		 * Agregar
+																		 * .
+																		 * getInstancia
+																		 * ().
+																		 * setVisible
+																		 * (
+																		 * true)
+																		 * ;
+																		 */
+							}
 						});
 					}
 					{
@@ -132,9 +144,22 @@ public class Menu extends javax.swing.JFrame {
 						jMenuItem10.setText("Baja");
 						jMenuItem10.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {/*
-								Baja.getInstancia().setLocationRelativeTo(null);
-								Baja.getInstancia().setVisible(true);
-							*/}
+																		 * Baja.
+																		 * getInstancia
+																		 * ().
+																		 * setLocationRelativeTo
+																		 * (
+																		 * null)
+																		 * ;
+																		 * Baja.
+																		 * getInstancia
+																		 * ().
+																		 * setVisible
+																		 * (
+																		 * true)
+																		 * ;
+																		 */
+							}
 						});
 					}
 					{
@@ -143,12 +168,26 @@ public class Menu extends javax.swing.JFrame {
 						jMenuItem7.setText("Modificacion");
 						jMenuItem7.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {/*
-								Modif.getInstancia().setLocationRelativeTo(null);
-								Modif.getInstancia().setVisible(true);
-							*/}
+																		 * Modif.
+																		 * getInstancia
+																		 * ().
+																		 * setLocationRelativeTo
+																		 * (
+																		 * null)
+																		 * ;
+																		 * Modif
+																		 * .
+																		 * getInstancia
+																		 * ().
+																		 * setVisible
+																		 * (
+																		 * true)
+																		 * ;
+																		 */
+							}
 						});
 					}
-					
+
 				}
 				{
 					jMenu3 = new JMenu();
@@ -160,10 +199,22 @@ public class Menu extends javax.swing.JFrame {
 						jMenuItem5.setText("Alta");
 						jMenuItem5.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {/*
-								Alta.getInstancia().setLocationRelativeTo(null);
-								Alta.getInstancia().setVisible(true);
-								
-							*/}
+																		 * Alta.
+																		 * getInstancia
+																		 * ().
+																		 * setLocationRelativeTo
+																		 * (
+																		 * null)
+																		 * ;
+																		 * Alta.
+																		 * getInstancia
+																		 * ().
+																		 * setVisible
+																		 * (
+																		 * true)
+																		 * ;
+																		 */
+							}
 						});
 					}
 					{
@@ -172,9 +223,24 @@ public class Menu extends javax.swing.JFrame {
 						jMenuItem9.setText("Baja");
 						jMenuItem9.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {/*
-								BajaProveedor.getInstancia().setLocationRelativeTo(null);
-								BajaProveedor.getInstancia().setVisible(true);
-							*/}
+																		 * BajaProveedor
+																		 * .
+																		 * getInstancia
+																		 * ().
+																		 * setLocationRelativeTo
+																		 * (
+																		 * null)
+																		 * ;
+																		 * BajaProveedor
+																		 * .
+																		 * getInstancia
+																		 * ().
+																		 * setVisible
+																		 * (
+																		 * true)
+																		 * ;
+																		 */
+							}
 						});
 					}
 					{
@@ -183,9 +249,24 @@ public class Menu extends javax.swing.JFrame {
 						jMenuItem8.setText("Modificacion");
 						jMenuItem8.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {/*
-								ModificacionProveedor.getInstancia().setLocationRelativeTo(null);
-								ModificacionProveedor.getInstancia().setVisible(true);
-							*/}
+																		 * ModificacionProveedor
+																		 * .
+																		 * getInstancia
+																		 * ().
+																		 * setLocationRelativeTo
+																		 * (
+																		 * null)
+																		 * ;
+																		 * ModificacionProveedor
+																		 * .
+																		 * getInstancia
+																		 * ().
+																		 * setVisible
+																		 * (
+																		 * true)
+																		 * ;
+																		 */
+							}
 						});
 					}
 				}
@@ -199,19 +280,34 @@ public class Menu extends javax.swing.JFrame {
 						jMenuItem4.setText("Listar");
 						jMenuItem4.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {/*
-								AltaCliente.getInstancia().setLocationRelativeTo(null);
-								AltaCliente.getInstancia().setVisible(true);
-								
-							*/}
+																		 * AltaCliente
+																		 * .
+																		 * getInstancia
+																		 * ().
+																		 * setLocationRelativeTo
+																		 * (
+																		 * null)
+																		 * ;
+																		 * AltaCliente
+																		 * .
+																		 * getInstancia
+																		 * ().
+																		 * setVisible
+																		 * (
+																		 * true)
+																		 * ;
+																		 */
+							}
 						});
 						jMenuItem4 = new JMenuItem();
 						jMenu4.add(jMenuItem4);
 						jMenuItem4.setText("Alta");
 						jMenuItem4.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {
-								AltaCliente.getInstancia().setLocationRelativeTo(null);
+								AltaCliente.getInstancia()
+										.setLocationRelativeTo(null);
 								AltaCliente.getInstancia().setVisible(true);
-								
+
 							}
 						});
 						{
@@ -220,9 +316,30 @@ public class Menu extends javax.swing.JFrame {
 							jMenuItem9.setText("Baja");
 							jMenuItem9.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent evt) {/*
-									BajaProveedor.getInstancia().setLocationRelativeTo(null);
-									BajaProveedor.getInstancia().setVisible(true);
-								*/}
+																			 * BajaProveedor
+																			 * .
+																			 * getInstancia
+																			 * (
+																			 * )
+																			 * .
+																			 * setLocationRelativeTo
+																			 * (
+																			 * null
+																			 * )
+																			 * ;
+																			 * BajaProveedor
+																			 * .
+																			 * getInstancia
+																			 * (
+																			 * )
+																			 * .
+																			 * setVisible
+																			 * (
+																			 * true
+																			 * )
+																			 * ;
+																			 */
+								}
 							});
 						}
 						{
@@ -231,9 +348,30 @@ public class Menu extends javax.swing.JFrame {
 							jMenuItem8.setText("Modificacion");
 							jMenuItem8.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent evt) {/*
-									ModificacionProveedor.getInstancia().setLocationRelativeTo(null);
-									ModificacionProveedor.getInstancia().setVisible(true);
-								*/}
+																			 * ModificacionProveedor
+																			 * .
+																			 * getInstancia
+																			 * (
+																			 * )
+																			 * .
+																			 * setLocationRelativeTo
+																			 * (
+																			 * null
+																			 * )
+																			 * ;
+																			 * ModificacionProveedor
+																			 * .
+																			 * getInstancia
+																			 * (
+																			 * )
+																			 * .
+																			 * setVisible
+																			 * (
+																			 * true
+																			 * )
+																			 * ;
+																			 */
+								}
 							});
 						}
 					}
@@ -256,7 +394,7 @@ public class Menu extends javax.swing.JFrame {
 			pack();
 			this.setSize(650, 216);
 		} catch (Exception e) {
-		    //add your error handling code here
+			// add your error handling code here
 			e.printStackTrace();
 		}
 	}

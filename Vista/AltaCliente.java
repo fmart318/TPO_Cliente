@@ -1,8 +1,7 @@
 package Vista;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.rmi.Naming;
-import java.rmi.RemoteException;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -14,24 +13,20 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
+import rmi.RemoteInterface;
 import Negocio.Administrador;
 import dto.ClienteDTO;
-import rmi.RemoteInterface;
-
-import javax.swing.SwingUtilities;
 
 /**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
+ * This code was edited or generated using CloudGarden's Jigloo SWT/Swing GUI
+ * Builder, which is free for non-commercial use. If Jigloo is being used
+ * commercially (ie, by a corporation, company or business for any purpose
+ * whatever) then you should purchase a license for each developer using Jigloo.
+ * Please visit www.cloudgarden.com for details. Use of Jigloo implies
+ * acceptance of these licensing terms. A COMMERCIAL LICENSE HAS NOT BEEN
+ * PURCHASED FOR THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED LEGALLY FOR
+ * ANY CORPORATE OR COMMERCIAL PURPOSE.
+ */
 public class AltaCliente extends javax.swing.JFrame {
 	private JPanel jPanel1;
 	private JLabel jLabelNombre;
@@ -60,21 +55,22 @@ public class AltaCliente extends javax.swing.JFrame {
 	private JTextField jTextTelefono;
 	private static AltaCliente instancia;
 	private RemoteInterface ir;
+
 	/**
-	* Auto-generated main method to display this JFrame
-	*/
-	public static AltaCliente getInstancia(){
+	 * Auto-generated main method to display this JFrame
+	 */
+	public static AltaCliente getInstancia() {
 		if (instancia == null)
 			instancia = new AltaCliente();
 		return instancia;
 	}
-	
+
 	public AltaCliente() {
 		super();
 		initGUI();
 	}
-	
-	private void limpiarPantalla(){
+
+	private void limpiarPantalla() {
 		this.jTextNombre.setText("");
 		this.jTextTelefono.setText("");
 		this.jTextCalle.setText("");
@@ -84,10 +80,10 @@ public class AltaCliente extends javax.swing.JFrame {
 		this.jTextDni.setText("");
 		this.jTextPiso.setText("");
 	}
-	
+
 	private void initGUI() {
 		try {
-			
+
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			this.setSize(443, 320);
 			this.setTitle("Alta Cliente");
@@ -98,17 +94,18 @@ public class AltaCliente extends javax.swing.JFrame {
 				jLabelTipo.setBounds(4, 10, 57, 16);
 				jLabelTipo.setHorizontalAlignment(SwingConstants.RIGHT);
 				jLabelTipo.setHorizontalTextPosition(SwingConstants.RIGHT);
-			}		
+			}
 			{
-				ComboBoxModel jComboTipoModel = new DefaultComboBoxModel(new String[] { "","Particular", "Empresa" });
+				ComboBoxModel jComboTipoModel = new DefaultComboBoxModel(
+						new String[] { "", "Particular", "Empresa" });
 				jComboTipo = new JComboBox();
 				getContentPane().add(jComboTipo);
 				jComboTipo.setModel(jComboTipoModel);
 				jComboTipo.setBounds(76, 10, 120, 23);
-				
+
 				jComboTipo.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
-						if("Particular".equals(jComboTipo.getSelectedItem())){
+						if ("Particular".equals(jComboTipo.getSelectedItem())) {
 							jPanel1.setVisible(true);
 							jTextCuit.setVisible(false);
 							jLabelCuit.setVisible(false);
@@ -118,8 +115,8 @@ public class AltaCliente extends javax.swing.JFrame {
 							jTextApellido.setVisible(true);
 							jLabelDni.setVisible(true);
 							jTextDni.setVisible(true);
-						}
-						else if ("Empresa".equals(jComboTipo.getSelectedItem())){
+						} else if ("Empresa".equals(jComboTipo
+								.getSelectedItem())) {
 							jPanel1.setVisible(true);
 							jLabelApellido.setVisible(false);
 							jTextApellido.setVisible(false);
@@ -127,8 +124,7 @@ public class AltaCliente extends javax.swing.JFrame {
 							jTextDni.setVisible(false);
 							jTextCuit.setVisible(true);
 							jLabelCuit.setVisible(true);
-						}
-						else if("".equals(jComboTipo.getSelectedItem())){
+						} else if ("".equals(jComboTipo.getSelectedItem())) {
 							jPanel1.setVisible(false);
 						}
 					}
@@ -140,14 +136,15 @@ public class AltaCliente extends javax.swing.JFrame {
 				jPanel1.setBounds(12, 38, 443, 320);
 				jPanel1.setLayout(null);
 				jPanel1.setVisible(false);
-			
+
 				{
 					jLabelNombre = new JLabel();
 					jPanel1.add(jLabelNombre);
 					jLabelNombre.setText("Nombre");
 					jLabelNombre.setBounds(4, 40, 62, 16);
 					jLabelNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-					jLabelNombre.setHorizontalTextPosition(SwingConstants.RIGHT);
+					jLabelNombre
+							.setHorizontalTextPosition(SwingConstants.RIGHT);
 				}
 				{
 					jTextNombre = new JTextField();
@@ -161,7 +158,8 @@ public class AltaCliente extends javax.swing.JFrame {
 					jLabelApellido.setText("Apellido");
 					jLabelApellido.setBounds(4, 65, 62, 16);
 					jLabelApellido.setHorizontalAlignment(SwingConstants.RIGHT);
-					jLabelApellido.setHorizontalTextPosition(SwingConstants.RIGHT);
+					jLabelApellido
+							.setHorizontalTextPosition(SwingConstants.RIGHT);
 				}
 				{
 					jTextApellido = new JTextField();
@@ -203,9 +201,10 @@ public class AltaCliente extends javax.swing.JFrame {
 					jLabelTelefono.setText("Telefono");
 					jLabelTelefono.setBounds(4, 115, 57, 16);
 					jLabelTelefono.setHorizontalAlignment(SwingConstants.RIGHT);
-					jLabelTelefono.setHorizontalTextPosition(SwingConstants.RIGHT);
+					jLabelTelefono
+							.setHorizontalTextPosition(SwingConstants.RIGHT);
 				}
-				
+
 				{
 					jTextTelefono = new JTextField();
 					jPanel1.add(jTextTelefono);
@@ -254,7 +253,7 @@ public class AltaCliente extends javax.swing.JFrame {
 					jLabel8.setText("Depto");
 					jLabel8.setBounds(135, 190, 44, 16);
 				}
-				
+
 				{
 					jTextCalle = new JTextField();
 					jPanel1.add(jTextCalle);
@@ -286,13 +285,19 @@ public class AltaCliente extends javax.swing.JFrame {
 					btnAceptar.setBounds(85, 249, 87, 23);
 					btnAceptar.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent evt) {
-								ClienteDTO c=new ClienteDTO();
-								c.setNombre(jTextNombre.getText());
-								Administrador.getInstance().altaCliente(c);
-							/*Administrador.getInstancia().addCliente(jTextNombre.getText(), jTextTelefono.getText(), Double.valueOf(jTextDni.getText()),			 
-									jTextCalle.getText(), Integer.valueOf(jTextNro.getText()), jTextPiso.getText(), jTextDepto.getText(), jTextLocalidad.getText());
-								limpiarPantalla();*/
-								
+							ClienteDTO c = new ClienteDTO();
+							c.setNombre(jTextNombre.getText());
+							Administrador.getInstance().altaCliente(c);
+							/*
+							 * Administrador.getInstancia().addCliente(jTextNombre
+							 * .getText(), jTextTelefono.getText(),
+							 * Double.valueOf(jTextDni.getText()),
+							 * jTextCalle.getText(),
+							 * Integer.valueOf(jTextNro.getText()),
+							 * jTextPiso.getText(), jTextDepto.getText(),
+							 * jTextLocalidad.getText()); limpiarPantalla();
+							 */
+
 						}
 					});
 				}
@@ -311,7 +316,7 @@ public class AltaCliente extends javax.swing.JFrame {
 			pack();
 			this.setSize(379, 348);
 		} catch (Exception e) {
-		    //add your error handling code here
+			// add your error handling code here
 			e.printStackTrace();
 		}
 	}

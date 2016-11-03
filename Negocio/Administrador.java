@@ -6,17 +6,18 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import dto.*;
-import rmi.*;
+import rmi.RemoteInterface;
+import dto.ClienteDTO;
 
 public class Administrador {
 	private RemoteInterface ir;
 	private static final Administrador instancia = new Administrador();
+
 	public static Administrador getInstance() {
 		return instancia;
 	}
-	private Administrador()
-	{
+
+	private Administrador() {
 		try {
 			ir = (RemoteInterface) Naming.lookup("//localhost/tpo");
 		} catch (MalformedURLException e) {
@@ -27,8 +28,9 @@ public class Administrador {
 			e.printStackTrace();
 		}
 	}
-	public  List<ClienteDTO> listarClientes() {
-		
+
+	public List<ClienteDTO> listarClientes() {
+
 		try {
 			return ir.obtenerClientes();
 		} catch (RemoteException e) {
@@ -36,21 +38,23 @@ public class Administrador {
 		}
 		return null;
 	}
-	public void altaCliente(ClienteDTO clienteDto){
-		try{
+
+	public void altaCliente(ClienteDTO clienteDto) {
+		try {
 			ir.altaCliente(clienteDto);
-		}catch (RemoteException e){
+		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	public List<ClienteDTO> obtenerClientes(){
-		try{
+
+	public List<ClienteDTO> obtenerClientes() {
+		try {
 			return ir.obtenerClientes();
-		}catch (RemoteException e){
+		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
+
 }
