@@ -198,22 +198,10 @@ public class Menu extends javax.swing.JFrame {
 						jMenu3.add(jMenuItem5);
 						jMenuItem5.setText("Alta");
 						jMenuItem5.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent evt) {/*
-																		 * Alta.
-																		 * getInstancia
-																		 * ().
-																		 * setLocationRelativeTo
-																		 * (
-																		 * null)
-																		 * ;
-																		 * Alta.
-																		 * getInstancia
-																		 * ().
-																		 * setVisible
-																		 * (
-																		 * true)
-																		 * ;
-																		 */
+							public void actionPerformed(ActionEvent evt) {
+								AltaProveedor.getInstancia()
+										.setLocationRelativeTo(null);
+								AltaProveedor.getInstancia().setVisible(true);
 							}
 						});
 					}
