@@ -279,24 +279,10 @@ public class Menu extends javax.swing.JFrame {
 						jMenu4.add(jMenuItem4);
 						jMenuItem4.setText("Listar");
 						jMenuItem4.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent evt) {/*
-																		 * AltaCliente
-																		 * .
-																		 * getInstancia
-																		 * ().
-																		 * setLocationRelativeTo
-																		 * (
-																		 * null)
-																		 * ;
-																		 * AltaCliente
-																		 * .
-																		 * getInstancia
-																		 * ().
-																		 * setVisible
-																		 * (
-																		 * true)
-																		 * ;
-																		 */
+							public void actionPerformed(ActionEvent evt) {
+								ListarClientes.getInstancia()
+										.setLocationRelativeTo(null);
+								ListarClientes.getInstancia().setVisible(true);
 							}
 						});
 						jMenuItem4 = new JMenuItem();

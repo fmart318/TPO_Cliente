@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import rmi.RemoteInterface;
-import Negocio.Administrador;
+import Negocio.AdministradorCliente;
 import dto.ClienteDTO;
 
 /**
@@ -287,7 +287,8 @@ public class AltaCliente extends javax.swing.JFrame {
 						public void actionPerformed(ActionEvent evt) {
 							ClienteDTO c = new ClienteDTO();
 							c.setNombre(jTextNombre.getText());
-							Administrador.getInstance().altaCliente(c);
+							AdministradorCliente.getInstance().altaCliente(c);
+
 							/*
 							 * Administrador.getInstancia().addCliente(jTextNombre
 							 * .getText(), jTextTelefono.getText(),

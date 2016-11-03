@@ -211,24 +211,6 @@ public class AltaPedido extends javax.swing.JFrame {
 				getContentPane().add(jComboCliente);
 				jComboCliente.setModel(jComboDirecD);
 				jComboCliente.setBounds(76, 160, 120, 23);
-				jComboCliente.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
-
-						List<ClienteDTO> clientes = Administrador.getInstance()
-								.obtenerClientes();
-						Vector<String> nombres = new Vector<String>();
-						for (int i = 0; i < clientes.size(); i++) {
-							nombres.addElement(clientes.get(i).getNombre());
-						}
-
-						ComboBoxModel jComboDirecD = new DefaultComboBoxModel(
-								nombres);
-						jComboCliente = new JComboBox();
-						getContentPane().add(jComboCliente);
-						jComboCliente.setModel(jComboDirecD);
-
-					}
-				});
 			}
 
 			{
