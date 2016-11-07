@@ -1,9 +1,14 @@
 package Vista;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import Negocio.AdministradorProveedor;
+import dto.ProveedorDTO;
 
 public class AltaProveedor extends javax.swing.JFrame {
 	
@@ -32,6 +37,7 @@ public class AltaProveedor extends javax.swing.JFrame {
 	}
 	
 	private void initGUI() {
+		this.setSize(500, 200);
 		try {
 			setTitle("Alta Proveedor");
 			getContentPane().setBackground(Color.WHITE);
@@ -58,10 +64,24 @@ public class AltaProveedor extends javax.swing.JFrame {
 			btnAceptar = new JButton("Aceptar");
 			btnAceptar.setBounds(126, 104, 117, 29);
 			getContentPane().add(btnAceptar);
+			btnAceptar.addActionListener(new ActionListener() {
+				
+				public void actionPerformed(ActionEvent e) {
+					ProveedorDTO proveedor = new ProveedorDTO();
+					proveedor.setCompania(compania.getText());
+					proveedor.setTipoMercaderia(mercaderia.getText());
+					AdministradorProveedor.getInstance().altaProveedor(proveedor);
+				}
+			});
 			
 			btnCancelar = new JButton("Cancelar");
 			btnCancelar.setBounds(284, 104, 117, 29);
 			getContentPane().add(btnCancelar);
+			btnCancelar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
 		
 		} catch (Exception e) {
 			e.printStackTrace();
