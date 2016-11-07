@@ -1,111 +1,90 @@
 package Vista;
-
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 
 import Negocio.AdministradorProveedor;
 import dto.ProveedorDTO;
 
 public class AltaProveedor extends javax.swing.JFrame {
-
-	private static final long serialVersionUID = 1404881132046588088L;
-
+	
+	private static final long serialVersionUID = -1183838433751027311L;
 	private static AltaProveedor instancia;
-
+	
 	private JLabel labelMercaderia;
 	private JTextField mercaderia;
-
+	
 	private JLabel labelCompania;
 	private JTextField compania;
-
-	private JButton btnCancelar;
+	
 	private JButton btnAceptar;
-
-	/**
-	 * Auto-generated main method to display this JFrame
-	 */
+	private JButton btnCancelar;
+	
 	public static AltaProveedor getInstancia() {
 		if (instancia == null)
 			instancia = new AltaProveedor();
 		return instancia;
 	}
-
+	
 	public AltaProveedor() {
 		super();
+		getContentPane().setBackground(Color.WHITE);
 		initGUI();
 	}
-
+	
 	private void initGUI() {
+		this.setSize(500, 200);
 		try {
-
-			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-			this.setSize(443, 320);
-			this.setTitle("Alta Proveedor");
-
-			{
-				labelMercaderia = new JLabel();
-				labelMercaderia.setText("Tipo de Mercaderia: ");
-				labelMercaderia.setBounds(76, 165, 160, 23);
-				getContentPane().add(labelMercaderia);
-
-			}
-			{
-				mercaderia = new JTextField();
-				mercaderia.setBounds(76, 165, 160, 23);
-				getContentPane().add(mercaderia);
-			}
-			{
-				labelCompania = new JLabel();
-				labelCompania.setText("Compa�ia: ");
-				labelCompania.setBounds(76, 165, 160, 23);
-				getContentPane().add(labelCompania);
-			}
-			{
-				compania = new JTextField();
-				compania.setBounds(76, 165, 160, 23);
-				getContentPane().add(compania);
-			}
-
-			{
-				btnAceptar = new JButton();
-				btnAceptar.setText("Aceptar");
-				btnAceptar.setBounds(85, 249, 87, 23);
-				btnAceptar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
-						ProveedorDTO proveedor = new ProveedorDTO();
-						proveedor.setCompania(compania.getText());
-						proveedor.setTipoMercaderia(mercaderia.getText());
-						AdministradorProveedor.getInstance().altaProveedor(
-								proveedor);
-						limpiarPantalla();
-					}
-				});
-			}
-			{
-				btnCancelar = new JButton();
-				btnCancelar.setText("Cancelar");
-				btnCancelar.setBounds(183, 249, 87, 23);
-				btnCancelar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
-						dispose();
-					}
-				});
-			}
-			pack();
-			this.setSize(379, 348);
+			setTitle("Alta Proveedor");
+			getContentPane().setBackground(Color.WHITE);
+			getContentPane().setLayout(null);
+			
+			labelCompania = new JLabel("Compañia:");
+			labelCompania.setBounds(86, 45, 67, 16);
+			getContentPane().add(labelCompania);
+			
+			compania = new JTextField();
+			compania.setBounds(165, 43, 279, 26);
+			getContentPane().add(compania);
+			compania.setColumns(10);
+			
+			labelMercaderia = new JLabel("Mercadería:");
+			labelMercaderia.setBounds(86, 10, 72, 16);
+			getContentPane().add(labelMercaderia);
+			
+			mercaderia = new JTextField();
+			mercaderia.setBounds(165, 5, 279, 26);
+			getContentPane().add(mercaderia);
+			mercaderia.setColumns(10);
+			
+			btnAceptar = new JButton("Aceptar");
+			btnAceptar.setBounds(126, 104, 117, 29);
+			getContentPane().add(btnAceptar);
+			btnAceptar.addActionListener(new ActionListener() {
+				
+				public void actionPerformed(ActionEvent e) {
+					ProveedorDTO proveedor = new ProveedorDTO();
+					proveedor.setCompania(compania.getText());
+					proveedor.setTipoMercaderia(mercaderia.getText());
+					AdministradorProveedor.getInstance().altaProveedor(proveedor);
+				}
+			});
+			
+			btnCancelar = new JButton("Cancelar");
+			btnCancelar.setBounds(284, 104, 117, 29);
+			getContentPane().add(btnCancelar);
+			btnCancelar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+		
 		} catch (Exception e) {
-			// add your error handling code here
 			e.printStackTrace();
-		}
-	}
-
-	private void limpiarPantalla() {
-		mercaderia.setText("");
-		compania.setText("");
+		}	
 	}
 }
