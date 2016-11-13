@@ -17,7 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import rmi.RemoteInterface;
-import Negocio.Administrador;
+import Negocio.AdministradorCliente;
 import dto.ClienteDTO;
 
 /**
@@ -31,6 +31,11 @@ import dto.ClienteDTO;
  * ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
 public class AltaPedido extends javax.swing.JFrame {
+
+	private static final long serialVersionUID = -6717605735520576590L;
+	private static AltaPedido instancia;
+	private RemoteInterface ir;
+	
 	private JPanel jPanel1;
 	private JLabel jLabelNombre;
 	private JLabel jLabelFecha;
@@ -79,8 +84,7 @@ public class AltaPedido extends javax.swing.JFrame {
 	private JLabel jLabel6;
 	private JFrame jFrameFecha;
 	private JTextField jTextTelefono;
-	private static AltaPedido instancia;
-	private RemoteInterface ir;
+	
 
 	/**
 	 * Auto-generated main method to display this JFrame
@@ -100,6 +104,7 @@ public class AltaPedido extends javax.swing.JFrame {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	private void initGUI() {
 		try {
 
@@ -199,7 +204,7 @@ public class AltaPedido extends javax.swing.JFrame {
 			}
 
 			{
-				List<ClienteDTO> clientes = Administrador.getInstance()
+				List<ClienteDTO> clientes = AdministradorCliente.getInstance()
 						.obtenerClientes();
 				Vector<String> nombres = new Vector<String>();
 				for (int i = 0; i < clientes.size(); i++) {
@@ -256,7 +261,7 @@ public class AltaPedido extends javax.swing.JFrame {
 			{
 				jLabelFechaMax = new JLabel();
 				getContentPane().add(jLabelFechaMax);
-				jLabelFechaMax.setText("Fech Máx");
+				jLabelFechaMax.setText("Fech Mï¿½x");
 				jLabelFechaMax.setBounds(4, 90, 60, 16);
 				jLabelFechaMax.setHorizontalAlignment(SwingConstants.RIGHT);
 				jLabelFechaMax.setHorizontalTextPosition(SwingConstants.RIGHT);

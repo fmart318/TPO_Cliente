@@ -15,6 +15,7 @@ import javax.swing.WindowConstants;
 
 import rmi.RemoteInterface;
 import Negocio.Administrador;
+import Negocio.AdministradorCliente;
 import dto.ClienteDTO;
 
 /**
@@ -28,17 +29,16 @@ import dto.ClienteDTO;
  * ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
 public class ListarClientes extends javax.swing.JFrame {
-	private JPanel jPanel1;
 
-	private JList jList1;
-	private JButton btnCancelar;
-	private JButton btnAceptar;
+	private static final long serialVersionUID = -113708619852837260L;
 	private static ListarClientes instancia;
 	private RemoteInterface ir;
 
-	/**
-	 * Auto-generated main method to display this JFrame
-	 */
+	private JPanel jPanel1;
+	private JList jList1;
+	private JButton btnCancelar;
+	private JButton btnAceptar;
+
 	public static ListarClientes getInstancia() {
 		if (instancia == null)
 			instancia = new ListarClientes();
@@ -68,7 +68,7 @@ public class ListarClientes extends javax.swing.JFrame {
 							// Administrador.getInstance().altaCliente(c);
 							List<ClienteDTO> listadoClientes = new ArrayList<ClienteDTO>();
 
-							listadoClientes.addAll(Administrador.getInstance()
+							listadoClientes.addAll(AdministradorCliente.getInstance()
 									.listarClientes());
 
 							/*
@@ -105,10 +105,11 @@ public class ListarClientes extends javax.swing.JFrame {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private JList getJList1() {
 		if (jList1 == null) {
 			List<String> lista = new ArrayList<String>();
-			List<ClienteDTO> aux = Administrador.getInstance().listarClientes();
+			List<ClienteDTO> aux = AdministradorCliente.getInstance().listarClientes();
 			for (ClienteDTO clienteDTO : aux) {
 				lista.add(clienteDTO.getNombre());
 			}

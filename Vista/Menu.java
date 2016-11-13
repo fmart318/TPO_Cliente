@@ -15,6 +15,10 @@ import javax.swing.WindowConstants;
 import rmi.RemoteInterface;
 
 public class Menu extends javax.swing.JFrame {
+
+	private static final long serialVersionUID = -8779796391399802982L;
+	private RemoteInterface ir;
+	
 	private JMenuBar jMenuBar1;
 	private JMenuItem jMenuItem9;
 	private JMenuItem jMenuItem10;
@@ -32,11 +36,7 @@ public class Menu extends javax.swing.JFrame {
 	private JMenu jMenu1;
 	private JMenuItem jMenuItem3;
 	private JMenuItem jMenuItem4;
-	private RemoteInterface ir;
 
-	/**
-	 * Auto-generated main method to display this JFrame
-	 */
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
@@ -112,7 +112,7 @@ public class Menu extends javax.swing.JFrame {
 				{
 					jMenu1 = new JMenu();
 					jMenuBar1.add(jMenu1);
-					jMenu1.setText("Vehículos");
+					jMenu1.setText("Vehï¿½culos");
 					{
 						jMenuItem1 = new JMenuItem();
 						jMenu1.add(jMenuItem1);
