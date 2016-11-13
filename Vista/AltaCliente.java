@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
-import rmi.RemoteInterface;
+import Negocio.Administrador;
 import Negocio.AdministradorCliente;
 import dto.ClienteDTO;
 
@@ -28,6 +28,10 @@ import dto.ClienteDTO;
  * ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
 public class AltaCliente extends javax.swing.JFrame {
+
+	private static final long serialVersionUID = -3245537569737050758L;
+	private static AltaCliente instancia;
+	
 	private JPanel jPanel1;
 	private JLabel jLabelNombre;
 	private JTextField jTextNombre;
@@ -37,6 +41,7 @@ public class AltaCliente extends javax.swing.JFrame {
 	private JLabel jLabelTelefono;
 	private JLabel jLabelApellido;
 	private JLabel jLabelTipo;
+	@SuppressWarnings("rawtypes")
 	private JComboBox jComboTipo;
 	private JLabel jLabelDni;
 	private JLabel jLabelCuit;
@@ -53,12 +58,7 @@ public class AltaCliente extends javax.swing.JFrame {
 	private JLabel jLabel7;
 	private JLabel jLabel6;
 	private JTextField jTextTelefono;
-	private static AltaCliente instancia;
-	private RemoteInterface ir;
 
-	/**
-	 * Auto-generated main method to display this JFrame
-	 */
 	public static AltaCliente getInstancia() {
 		if (instancia == null)
 			instancia = new AltaCliente();
@@ -70,6 +70,7 @@ public class AltaCliente extends javax.swing.JFrame {
 		initGUI();
 	}
 
+	@SuppressWarnings("unused")
 	private void limpiarPantalla() {
 		this.jTextNombre.setText("");
 		this.jTextTelefono.setText("");
@@ -81,6 +82,7 @@ public class AltaCliente extends javax.swing.JFrame {
 		this.jTextPiso.setText("");
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initGUI() {
 		try {
 
